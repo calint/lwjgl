@@ -10,7 +10,10 @@ public class obj{
 	public final p3 a=new p3();
 	public final Set<obj> chs=new HashSet<obj>();
 	protected polh ph;
-	public void upd(){}
+	public void upd(){
+		for(final obj o:chs)
+			o.upd();
+	}
 	public final void rend(){
 		if(ph==null&&chs.isEmpty())
 			return;
