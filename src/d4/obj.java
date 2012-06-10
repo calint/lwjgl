@@ -6,10 +6,15 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 import java.util.HashSet;
 import java.util.Set;
 public class obj{
-	public final p3 p=new p3();
-	public final p3 a=new p3();
-	public final Set<obj> chs=new HashSet<obj>();
+	protected final p3 p=new p3();
+	protected final p3 a=new p3();
 	protected polh ph;
+	protected final Set<obj>chs=new HashSet<obj>();
+	;
+	;
+	public final p3 pos(){return p;}
+	public final p3 agl(){return a;}
+	public final Set<obj>chs(){return chs;}
 	public void upd(){
 		for(final obj o:chs)
 			o.upd();
