@@ -13,11 +13,6 @@ public class obj extends p3{
 	protected final Set<obj>chs=new HashSet<obj>();
 	;
 	;
-//	public obj(){
-//		if(this instanceof wld)
-//			return;
-//		throw new Error("notinstanceof wld");
-//	}
 	public obj(final obj parent){
 		if(parent==null)return;
 		pt=parent;
