@@ -1,11 +1,8 @@
 package d4;
 import static org.lwjgl.opengl.GL11.GL_COLOR_ARRAY;
 import static org.lwjgl.opengl.GL11.GL_FLOAT;
-import static org.lwjgl.opengl.GL11.GL_QUADS;
-import static org.lwjgl.opengl.GL11.GL_UNSIGNED_INT;
 import static org.lwjgl.opengl.GL11.GL_VERTEX_ARRAY;
 import static org.lwjgl.opengl.GL11.glColorPointer;
-import static org.lwjgl.opengl.GL11.glDrawElements;
 import static org.lwjgl.opengl.GL11.glEnableClientState;
 import static org.lwjgl.opengl.GL11.glVertexPointer;
 import static org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER;
@@ -31,6 +28,6 @@ public class polh{
 		glColorPointer(4,GL_FLOAT,0,0);
 		;
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibgl);
-		glDrawElements(GL_QUADS,12,GL_UNSIGNED_INT,0);
+//		glDrawElements(GL_QUADS,12,GL_UNSIGNED_INT,0);
 	}
 }
