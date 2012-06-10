@@ -17,10 +17,10 @@ public class obj{
 	public final void rend(){
 		if(ph==null&&chs.isEmpty())
 			return;
-		glTranslatef(p.x,p.y,p.z);
-		glRotatef(a.x,1,0,0);
-		glRotatef(a.y,0,1,0);
+//		glRotatef(a.x,1,0,0);
+//		glRotatef(a.y,0,1,0);
 		glRotatef(a.z,0,0,1);
+		glTranslatef(p.x,p.y,p.z);
 		if(ph!=null)
 			ph.rend();
 		if(chs.isEmpty())

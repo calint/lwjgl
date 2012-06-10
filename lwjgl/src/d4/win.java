@@ -20,9 +20,8 @@ public class win extends obj{
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glViewport(0,0,wi,hi);
-		GLU.gluPerspective(90,(float)wi/hi,0,10000);
+		GLU.gluPerspective(90,(float)wi/hi,.01f,10000);
 		GLU.gluLookAt(p.x,p.y,p.z, 0,0,0, 0,1,0);
-//		glTranslatef(-p.x,-p.y,-p.z);
 		;
 		final Iterator<obj>i=wd.all();
 		glMatrixMode(GL_MODELVIEW);
@@ -33,7 +32,7 @@ public class win extends obj{
 		}
 	}
 	public void upd(){
-		p.x+=.1f;if(p.x>5)p.x=-5;
-		p.z-=.1f;if(p.z<0)p.z=20;
+//		p.x+=.1f;if(p.x>5)p.x=-5;
+		p.z+=-.1f;if(p.z<-17)p.z=0;
 	}
 }
