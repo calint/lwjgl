@@ -12,30 +12,30 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.GLU;
-import d4.ob.objhous;
 public class frame{
 	final int wi=1024;
 	final int hi=512;
 //	private shader shd=new shader();
+	final obj o=new wld();
+	final p3 p=new p3();
 	public frame() throws Throwable{
 		Display.setDisplayMode(new DisplayMode(wi,hi));
-		p("lwjgl display ").p(Display.getDisplayMode().toString()).nl();
 		Display.setTitle("d4");
+		p("lwjgl display ").p(Display.getDisplayMode().toString());
 		Display.create();
+		nl();
 		if(!GLContext.getCapabilities().GL_ARB_vertex_buffer_object)
 			throw new Exception("nosupport GL_ARB_vertex_buffer_object");
 		p("opengl");
+		;
+		vbos.load();
+		;
 //		final int shdrvtx=glCreateShader(GL_VERTEX_SHADER);
 //		final int prog=glCreateProgram();
-		files.load();
-//		for(final polh p:files.polhs)
-//			p.init();
-		final obj o=new objhous();
-		glClearColor(0.5f,0.5f,1.0f,1.0f);
+//		final obj o=new objhous();
 		;
-		;
-		final p3 p=new p3();
 		p.z-=10;
+		glClearColor(0.5f,0.5f,1.0f,1.0f);
 		while(true){
 			if(Display.isCloseRequested())break;
 			;
