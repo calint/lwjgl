@@ -1,5 +1,8 @@
 package d4.ph;
 
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.GL_UNSIGNED_INT;
+import static org.lwjgl.opengl.GL11.glDrawElements;
 import static org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER;
 import static org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER;
 import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
@@ -31,5 +34,9 @@ public class polhsq extends polh{
 		ib.flip();
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibgl);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER,ib,GL_STATIC_DRAW);
+	}
+	public void rend(){
+		super.rend();
+		glDrawElements(GL_QUADS,12,GL_UNSIGNED_INT,0);
 	}
 }
