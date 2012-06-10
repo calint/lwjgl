@@ -8,6 +8,7 @@ import java.util.Set;
 public class obj extends p3{
 //	protected final p3 p=new p3();
 	protected final p3 a=new p3();
+	protected final p3 l=new p3();
 	protected polh ph;
 	protected obj pt;
 	protected final Set<obj>chs=new HashSet<obj>();
