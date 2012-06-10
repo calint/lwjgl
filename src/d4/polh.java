@@ -1,5 +1,4 @@
 package d4;
-
 import static org.lwjgl.opengl.GL11.GL_COLOR_ARRAY;
 import static org.lwjgl.opengl.GL11.GL_FLOAT;
 import static org.lwjgl.opengl.GL11.GL_QUADS;
@@ -14,7 +13,6 @@ import static org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER;
 import static org.lwjgl.opengl.GL15.glBindBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-
 public class polh{
 	protected FloatBuffer vb;
 	protected int vbgl;

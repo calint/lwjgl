@@ -1,16 +1,14 @@
 package d4;
-
 import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glRotatef;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import java.util.HashSet;
 import java.util.Set;
-
 public class obj{
 	public final p3 p=new p3();
 	public final p3 a=new p3();
-	public final Set<obj>chs=new HashSet<obj>();
+	public final Set<obj> chs=new HashSet<obj>();
 	protected polh ph;
 	public void upd(){}
 	public final void rend(){
