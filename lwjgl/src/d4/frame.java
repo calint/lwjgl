@@ -7,9 +7,6 @@ import static org.lwjgl.opengl.GL11.glClear;
 import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glMatrixMode;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glViewport;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -30,43 +27,35 @@ public class frame{
 		p("opengl");
 //		final int shdrvtx=glCreateShader(GL_VERTEX_SHADER);
 //		final int prog=glCreateProgram();
-
-		glViewport(0,0,wi,hi);
-		glMatrixMode(GL_PROJECTION);
-//		glLoadIdentity();
-		//eyex,eyey,eyez,centerx,centery,centerz,upx,upy,upz
-		//GLU.gluLookAt(0,0,-100, 0,0,0, 0,1,0);
-		GLU.gluPerspective(45,(float)wi/hi,0,10000);
-		;
-		;
-		;
-		for(final polh p:files.polhs)
-			p.init();
-		;
-		;
+		files.load();
+//		for(final polh p:files.polhs)
+//			p.init();
 		final obj o=new objhous();
 		glClearColor(0.5f,0.5f,1.0f,1.0f);
 		;
 		;
 		final p3 p=new p3();
-		p.z=10;
-		;
-		;
+		p.z-=10;
 		while(true){
 			if(Display.isCloseRequested())break;
+			;
 			glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+			;
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			glViewport(0,0,wi,hi);
+			GLU.gluPerspective(90,(float)wi/hi,0,10000);
+			GLU.gluLookAt(p.x,p.y,p.z, 0,0,0, 0,1,0);
+			;
 			glMatrixMode(GL_MODELVIEW);
 			glLoadIdentity();
-			glTranslatef(-p.x,-p.y,-p.z);
-			glPushMatrix();
 			o.rend();
 			o.upd();
-			glPopMatrix();
+			;
 			Display.update();
 			Display.sync(24);
 			; 
-			;
-			p.z-=.1f;if(p.z<0)p.z=10;	
+			p.z-=.1f;if(p.z<0)p.z=20;	
 		}
 		Display.destroy();
 	}
