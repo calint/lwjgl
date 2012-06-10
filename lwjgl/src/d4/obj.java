@@ -17,7 +17,7 @@ public class obj extends p3{
 	public obj(final obj parent){
 		if(parent==null)return;
 		pt=parent;
-		parent.chs.add(this);
+		parent.chs.add(this);//? sync
 	}
 //	public final p3 pos(){return p;}
 	public final p3 agl(){return a;}

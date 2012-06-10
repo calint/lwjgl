@@ -1,5 +1,6 @@
 package a.d4;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import b.a;
@@ -13,8 +14,12 @@ public class net extends a implements sock{
 	private ByteBuffer bb=ByteBuffer.allocate(pklen);
 	public niop sockinit(final SocketChannel sc)throws Throwable{
 		this.sockch=sc;
-		return niop.read;
+		final byte[]ba=b.b.tobytes(b.b.hello+"\n> ");
+		bb.put(ba,0,ba.length<bb.capacity()?ba.length:bb.capacity());
+		bb.flip();
+		return send();
 	}
+	public niop write() throws Throwable{return send();}
 	public niop read() throws Throwable{
 		while(true){
 			final int c=sockch.read(bb);
@@ -22,19 +27,14 @@ public class net extends a implements sock{
 				return niop.close;
 			if(c==0)
 				return niop.read;
-			System.out.println(this+" "+new String(bb.array()));
+			System.out.println(this+" "+new String(bb.array())+"\n>");
 			bb.flip();
 			final niop r=parse();
-			if(r==niop.more){
-				continue;
-			}
 			return r;
 		}
 	}
-	private niop parse()throws Throwable{
-		return niop.write;
-	}
-	public niop write() throws Throwable{
+	private niop parse()throws Throwable{return niop.write;}
+	private niop send() throws IOException{
 		while(true){
 			final int c=sockch.write(bb);
 			if(c==-1)
