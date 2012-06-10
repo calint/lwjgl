@@ -16,10 +16,11 @@ public class app{
 		Display.create();
 		p("opengl ").p(Display.getAdapter()).p(" ").pl(Display.getVersion());
 //		Class.forName(vbos).getMethod("load").invoke(null,(Object[])null);
-		final wld wd=new wld();
+		final wld wd=new wld(null);
 		Class.forName(init).getConstructor(wld.class).newInstance(wd);
 		final win wn=new win(wd,wi,hi);
-		wn.p.z-=0;
+		wn.z-=0;
+//		wn.p.z-=0;
 		glClearColor(.5f,.5f,1,1);
 		long frame=0;
 		pl("loop");
@@ -34,7 +35,8 @@ public class app{
 			wd.upd();
 			final long t1=System.currentTimeMillis();
 			final long dt=t1-t0;
-			System.out.format("frame=%05d   dt=%03d    z=%f\r",frame,dt,wn.p.z);
+//			System.out.format("frame=%05d   dt=%03d    z=%f\r",frame,dt,wn.p.z);
+			System.out.format("frame=%05d   dt=%03d    z=%f\r",frame,dt,wn.z);
 			Display.sync(24);
 		}
 		Display.destroy();
