@@ -11,12 +11,7 @@ public class objhous extends obj{
 		chs.add(r);
 	}
 	public void upd(){
+		super.upd();
 		p.x+=.001;
-//		a.z+=5;
-		if(chs.isEmpty())
-			return;
-		for(final obj o:chs){
-			o.upd();
-		}
 	}
 }

@@ -5,7 +5,7 @@ public final class wld extends obj{
 	public wld(){
 		chs.add(new objhous());
 	}
-	public Iterator<obj> objs(){
+	public Iterator<obj>all(){
 		return chs.iterator();
 	}
 }
