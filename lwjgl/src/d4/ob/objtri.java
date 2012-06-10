@@ -1,6 +1,6 @@
 package d4.ob;
-import d4.vbos;
 import d4.obj;
+import d4.ph.vbos;
 public class objtri extends obj{
 	public objtri(){
 		ph=vbos.polhs[1];
