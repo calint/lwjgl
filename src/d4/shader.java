@@ -19,7 +19,7 @@ import static org.lwjgl.opengl.GL11.glRotatef;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 import org.lwjgl.util.glu.GLU;
-public final class shader{
+final class shader{
 	private int rot=0;
 	public String shdrpthvtx(){return "vertex.glsl";}
 	public String shdrpthfrag(){return "fragment.glsl";}
