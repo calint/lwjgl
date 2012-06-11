@@ -5,6 +5,6 @@ import d4.ph.vbos;
 public class obsq extends obj{
 	public obsq(final obj pt){
 		super(pt);
-		ph=vbos.polhs.get(sq.class);
+		ph=vbos.get(sq.class);
 	}
 }

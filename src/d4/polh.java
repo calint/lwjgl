@@ -17,8 +17,8 @@ public class polh{
 	protected int cbgl;
 	protected IntBuffer ib;
 	protected int ibgl;
-	public void init(){}
-	public void rend(){
+	public void init()throws Throwable{}
+	public void rend()throws Throwable{
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glBindBuffer(GL_ARRAY_BUFFER,vbgl);
 		glVertexPointer(2,GL_FLOAT,0,0);

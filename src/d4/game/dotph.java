@@ -35,7 +35,7 @@ public class dotph extends polh{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibgl);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER,ib,GL_STATIC_DRAW);
 	}
-	public void rend(){
+	public void rend()throws Throwable{
 		super.rend();
 		glDrawElements(GL_QUADS,12,GL_UNSIGNED_INT,0);
 	}
