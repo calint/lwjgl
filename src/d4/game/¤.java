@@ -11,6 +11,6 @@ public class ¤{public ¤(final wld wd)throws Throwable{
 		new hudph()
 	}));
 	vbos.init();
-	new obhous(wd);
-	new hud(wd);
+	new obhous(wd).z=0;
+	new hud(wd).z=3;
 }}

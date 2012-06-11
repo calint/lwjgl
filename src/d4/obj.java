@@ -3,15 +3,15 @@ import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glRotatef;
 import static org.lwjgl.opengl.GL11.glTranslatef;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
+import java.util.LinkedList;
 public class obj extends p3{
 //	protected final p3 p=new p3();
 	protected obj pt;
 	protected final p3 a=new p3();
 	protected polh ph;
 	protected bvol bvol;
-	protected final Set<obj>chs=new HashSet<obj>();
+	protected final Collection<obj>chs=new LinkedList<obj>();
 	;
 	;
 	public obj(final obj parent){
@@ -21,7 +21,7 @@ public class obj extends p3{
 	}
 //	public final p3 pos(){return p;}
 	public final p3 agl(){return a;}
-	public final Set<obj>chs(){return chs;}
+	public final Collection<obj>chs(){return chs;}
 	public void upd(){
 		for(final obj o:chs)
 			o.upd();
