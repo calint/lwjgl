@@ -22,9 +22,9 @@ public class hud extends obj{
 	}
 	public void upd(){
 		super.upd();
-		z-=.15;if(z<-10)z=20;
-		a.x+=1;
-		a.y+=1;
-		a.z+=1;
+		z-=.01f;if(z<0)z=0;
+//		a.x+=1;
+//		a.y+=1;
+		a.z+=.1f;
 	}
 }

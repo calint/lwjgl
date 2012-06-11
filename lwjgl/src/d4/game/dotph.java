@@ -23,7 +23,7 @@ public class dotph extends polh{
 		;
 		cbgl=glGenBuffers();
 		cb=BufferUtils.createFloatBuffer(4*4);
-		cb.put(new float[]{1,1,1,1,  1,1,1,1,  1,1,1,1,  1,1,1,1});
+		cb.put(new float[]{0,0,1,1,  0,0,1,1,  0,0,1,1,  0,0,1,1});
 		cb.flip();
 		glBindBuffer(GL_ARRAY_BUFFER,cbgl);
 		glBufferData(GL_ARRAY_BUFFER,cb,GL_STATIC_DRAW);

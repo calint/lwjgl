@@ -1,10 +1,27 @@
 package d4;
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.util.glu.GLU.*;
-import java.awt.Font;
+import static org.lwjgl.opengl.GL11.GL_BLEND;
+import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
+import static org.lwjgl.opengl.GL11.GL_FRONT;
+import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
+import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_PROJECTION;
+import static org.lwjgl.opengl.GL11.GL_RGBA;
+import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_UNSIGNED_BYTE;
+import static org.lwjgl.opengl.GL11.glBlendFunc;
+import static org.lwjgl.opengl.GL11.glClear;
+import static org.lwjgl.opengl.GL11.glClearColor;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glMatrixMode;
+import static org.lwjgl.opengl.GL11.glOrtho;
+import static org.lwjgl.opengl.GL11.glReadBuffer;
+import static org.lwjgl.opengl.GL11.glReadPixels;
+import static org.lwjgl.opengl.GL11.glViewport;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
@@ -14,8 +31,6 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.TrueTypeFont;
 import d4.game.hudph;
 public class ¤{
 	public String init="d4.game.¤";
@@ -23,72 +38,72 @@ public class ¤{
 	public boolean logatframe=false;
 	public String datetimefmt="--yyyy-MM-dd--HH-mm-ss-SSS--";
 	public ¤() throws Throwable{
-		final int wi=1024;
-		final int hi=512;
+		int wi=1024;
+		int hi=512;
 		int fps=24;
-		p("display ").p(Display.getDisplayMode().toString());
-		Display.setTitle(getClass().getName());
+		;
+		;
+		p("display ");
 		Display.setDisplayMode(new DisplayMode(wi,hi));
+		Display.setResizable(true);
+		Display.setFullscreen(true);
+		Display.setTitle(getClass().getName());
 		Display.create();
+		p(Display.getDisplayMode().toString());
 		p(" opengl ").p(Display.getAdapter()).p(" ").p(Display.getVersion()).p(" ").p(fps).pl(" fps");
-		;
-		;
-		final wld wd=new wld(null);
-		Class.forName(init).getConstructor(wld.class).newInstance(wd);
-		final win wn=new win(wd,wi,hi);
-		wn.z-=0;
 		;
 		;
 		glClearColor(.5f,.5f,1,1);
 //		glEnable(GL_CULL_FACE);
 		;
-		glViewport(0,0,wi,hi);
+		glViewport(0,0,Display.getWidth(),Display.getHeight());
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glOrtho(0,wi,hi,0,1,-1);
-//		glClearColor(0,0,0,0);
-		int y=0;
+		;
+		glEnable(GL_BLEND);
+		glEnable(GL_DEPTH_TEST);
+		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+		;
+		final wld wd=new wld(null);
+		Class.forName(init).getConstructor(wld.class).newInstance(wd);
+		final win wn=new win(wd);
+		wn.z=-1;
 		;
 		final hudph hud=new hudph();
 		hud.init();
 		;
-		float fontsize=24;
-		final boolean antialias=true;
-		final InputStream is=getClass().getResourceAsStream("slkscr.ttf");
-		p(is);
-		if(is==null)throw new Error("cannot find resource slkscr.ttf");
-		final Font fntbase=Font.createFont(Font.TRUETYPE_FONT,is);
-		final Font fnt=fntbase.deriveFont(fontsize);
-		final TrueTypeFont ttf=new TrueTypeFont(fnt,antialias);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-		int w=wi;
-		int h=hi;
+		;
 		long frame=0;
 		long tt=0;
 		long ttfrm=0;
 		float fps_this_sec=0;
 		final long t00=System.currentTimeMillis();
 		int key=0;
-		do{
+		while(!Display.isCloseRequested()){
 			final long t0=System.currentTimeMillis();
-			if(Display.isCloseRequested())
-				break;
+			
+			wi=Display.getWidth();
+			hi=Display.getHeight();
+			;
 			glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+			;
+			wn.dim(wi,hi);
+			wn.rendview();
 			;
 			glViewport(0,0,wi,hi);
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
-			glOrtho(0,w,h,0,1,-1);
-			glEnable(GL_BLEND);
-			hud.drw(ttf);
-			glDisable(GL_BLEND);
+			glOrtho(0,wi,hi,0,1,-1);
+			glMatrixMode(GL_MODELVIEW);
+			glLoadIdentity();
 			;
-			;
-			wn.rendview();
+			hud.rend();
 			;
 			Display.update();
+			;
 			wd.upd();
+			;
 			final long t1=System.currentTimeMillis();
 			final long dt=t1-t0;
 			final long dtt=t1-tt;
@@ -102,30 +117,34 @@ public class ¤{
 				if(logatsec)
 					p("\rfps=").p(fps).p("   t=").p(t1-t00).p("ms   frame=#").p(frame);
 			}
+			final StringBuilder sb=new StringBuilder(256);
+			sb.append("#").append(frame).append("   fps:").append(fps).append("   mous:").append(Mouse.getX()).append(",").append(Mouse.getY()).append("   key:").append(key);
+			hud.str=sb.toString();
 			frame++;
 			;
 			;
 			while(Keyboard.next()){
 				key=Keyboard.getEventKey();
-				p("key=").pl(key);
-				if(key==59)
+//				p("key=").pl(key);
+				if(key==59){//f1
 					snapshot("snap"+new SimpleDateFormat(datetimefmt).format(new Date())+".jpg","jpg");//f1
-				else if(key==1){
+				}else if(key==1){//esc
 					Display.destroy();
-					return;//break;//esc
+					return;//break;
+				}else if(key==60){//f2
+					Display.setFullscreen(true);
+				}else if(key==61){//f3
+					Display.setFullscreen(false);
 				}
 			}
 			;
 			;
-			final StringBuilder sb=new StringBuilder(256);
-			sb.append("#").append(frame).append("   fps:").append(fps).append("   mous:").append(Mouse.getX()).append(",").append(Mouse.getY()).append("   keyb:").append(key);
-			hud.str=sb.toString();
 			if(logatframe){
 				System.out.format("frame=%05d   dt=%03dms   fps=%3f  z=%f\r",frame,dt,fps_this_sec,wn.z);
 				p("mous(x=").p(Mouse.getX()).p(",y=").p(Mouse.getY()).p(",b=").pl(Mouse.isButtonDown(0));
 			}
 			Display.sync(fps);
-		}while(true);
+		};
 		Display.destroy();
 	}
 	private ¤ p(final Object o){
