@@ -3,7 +3,7 @@ import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
 import static org.lwjgl.opengl.GL11.GL_PROJECTION;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glMatrixMode;
-import static org.lwjgl.opengl.GL11.glViewport;
+import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.util.glu.GLU.*;
 import java.util.Iterator;
 public final class win extends obj{
@@ -23,15 +23,16 @@ public final class win extends obj{
 		glLoadIdentity();
 		glViewport(0,0,wi,hi);
 		gluPerspective(90,(float)wi/hi,.01f,10000);
-//		gluLookAt(p.x,p.y,p.z, 0,0,0, 0,1,0);
 		gluLookAt(x,y,z, lookat.x,lookat.y,lookat.z, 0,1,0);
+//		gluLookAt(p.x,p.y,p.z, 0,0,0, 0,1,0);
 		;
-		final Iterator<obj>i=wd.all();
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
+		final Iterator<obj>i=wd.all();
 		while(i.hasNext()){
+			glPushMatrix();
 			i.next().rend();
-			glLoadIdentity();
+			glPopMatrix();
 		}
 	}
 	public void upd(){

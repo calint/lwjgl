@@ -40,7 +40,7 @@ public class ¤{
 		;
 		;
 		glClearColor(.5f,.5f,1,1);
-		glEnable(GL_CULL_FACE);
+//		glEnable(GL_CULL_FACE);
 		;
 		glViewport(0,0,wi,hi);
 		glMatrixMode(GL_PROJECTION);
@@ -55,6 +55,7 @@ public class ¤{
 		float fontsize=24;
 		final boolean antialias=true;
 		final InputStream is=getClass().getResourceAsStream("slkscr.ttf");
+		p(is);
 		if(is==null)throw new Error("cannot find resource slkscr.ttf");
 		final Font fntbase=Font.createFont(Font.TRUETYPE_FONT,is);
 		final Font fnt=fntbase.deriveFont(fontsize);
@@ -75,9 +76,6 @@ public class ¤{
 				break;
 			glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 			;
-			;
-			wn.rendview();
-			;
 			glViewport(0,0,wi,hi);
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
@@ -85,6 +83,9 @@ public class ¤{
 			glEnable(GL_BLEND);
 			hud.drw(ttf);
 			glDisable(GL_BLEND);
+			;
+			;
+			wn.rendview();
 			;
 			Display.update();
 			wd.upd();
