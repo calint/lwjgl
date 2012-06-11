@@ -4,6 +4,6 @@ import d4.ph.vbos;
 public class dot extends obj{
 	public dot(final obj pt){
 		super(pt);
-		ph=vbos.polhs[0];
+		ph=vbos.polhs.get(dotph.class);
 	}
 }

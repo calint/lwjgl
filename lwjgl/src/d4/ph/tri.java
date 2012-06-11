@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL15.glBufferData;
 import static org.lwjgl.opengl.GL15.glGenBuffers;
 import org.lwjgl.BufferUtils;
 import d4.polh;
-public class polhtri extends polh{
+public class tri extends polh{
 	public void init(){
 		vbgl=glGenBuffers();
 		vb=BufferUtils.createFloatBuffer(3*2);
