@@ -1,13 +1,13 @@
 package d4.ob;
 import d4.obj;
-public class objhous extends obj{
-	public objhous(final obj pt){
+public class obhous extends obj{
+	public obhous(final obj pt){
 		super(pt);
-		final obj s=new objsq(this);
+		final obj s=new obsq(this);
 //		s.pos().y=.1f;
 		s.y=.1f;
 		;
-		final obj r=new objtri(this);
+		final obj r=new obtri(this);
 //		r.pos().y=-.1f;
 		r.y=-.1f;
 	}

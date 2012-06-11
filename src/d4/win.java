@@ -13,7 +13,7 @@ public final class win extends obj{
 	private int hi;
 	public win(final wld w,final int wi,final int hi){
 		super(w);
-		this.ph=vbos.polhs[0];
+		this.ph=vbos.polhs.get(win.class);
 		this.wd=w;
 		this.wi=wi;
 		this.hi=hi;

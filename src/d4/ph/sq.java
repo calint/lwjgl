@@ -12,7 +12,7 @@ import static org.lwjgl.opengl.GL15.glGenBuffers;
 import org.lwjgl.BufferUtils;
 import d4.polh;
 
-public class polhsq extends polh{
+public class sq extends polh{
 	public void init(){
 		vbgl=glGenBuffers();
 		vb=BufferUtils.createFloatBuffer(4*2);
