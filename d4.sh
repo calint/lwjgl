@@ -1,9 +1,6 @@
-jgl="$HOME/sdk/lwjgl/lwjgl-2.8.4"
-jar="$jgl/jar"
-lib="$jgl/native/macosx/"
-app="d4.app"
-echo $jar
-echo $lib
-echo $app
-java -cp bin:$jar/lwjgl.jar:$jar/lwjgl_util.jar -Djava.library.path=$lib $app
-
+hom=`dirname $0`
+pwd=`pwd`
+cd $hom&&
+./jgl.sh d4.app
+echo
+cd $pwd
