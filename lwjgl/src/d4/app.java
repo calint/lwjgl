@@ -7,7 +7,7 @@ import static org.lwjgl.opengl.GL11.GL_UNSIGNED_BYTE;
 import static org.lwjgl.opengl.GL11.glClear;
 import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.opengl.GL11.glReadBuffer;
-import static org.lwjgl.opengl.GL11.glReadPixels;
+import static org.lwjgl.opengl.GL11.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.ByteBuffer;
@@ -18,8 +18,9 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import d4.game.hudph;
 public class app{
-	public String init="d4.game.init";
+	public String init="d4.game.¤";
 	public boolean logatsec=true;
 	public boolean logatframe=false;
 	public String datetimefmt="--yyyy-MM-dd--HH-mm-ss-SSS--";
@@ -32,11 +33,19 @@ public class app{
 		Display.setDisplayMode(new DisplayMode(wi,hi));
 		Display.create();
 		p(" opengl ").p(Display.getAdapter()).p(" ").p(Display.getVersion()).p(" ").p(fps).pl(" fps");
+		;
+		;
 		final wld wd=new wld(null);
 		Class.forName(init).getConstructor(wld.class).newInstance(wd);
 		final win wn=new win(wd,wi,hi);
 		wn.z-=0;
+		final hudph hud=new hudph();
+		hud.init();
+		;
+		;
 		glClearColor(.5f,.5f,1,1);
+		glEnable(GL_CULL_FACE);
+		;
 		long frame=0;
 		long tt=0;
 		long ttfrm=0;
@@ -47,6 +56,7 @@ public class app{
 			if(Display.isCloseRequested())
 				break;
 			glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+			hud.rend();
 			wn.rendview();
 			Display.update();
 			wd.upd();

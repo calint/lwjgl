@@ -5,7 +5,7 @@ import d4.ph.vbos;
 public class obtri extends obj{
 	public obtri(final obj pt){
 		super(pt);
-		ph=vbos.polhs.get(tri.class);
+		ph=vbos.get(tri.class);
 	}
 	public void upd(){
 		super.upd();

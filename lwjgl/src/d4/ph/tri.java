@@ -34,9 +34,9 @@ public class tri extends polh{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibgl);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER,ib,GL_STATIC_DRAW);
 	}
-	public void rend(){
+	public void rend()throws Throwable{
 		super.rend();
 		glPointSize(20);
-		glDrawElements(GL_POINTS,12,GL_UNSIGNED_INT,0);
+		glDrawElements(GL_POINTS,3*2*2,GL_UNSIGNED_INT,0);
 	}
 }

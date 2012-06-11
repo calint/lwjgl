@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 public class obj extends p3{
 //	protected final p3 p=new p3();
-	protected final p3 a=new p3();
-	protected final p3 l=new p3();
-	protected polh ph;
 	protected obj pt;
+	protected final p3 a=new p3();
+	protected polh ph;
+	protected bvol bvol;
 	protected final Set<obj>chs=new HashSet<obj>();
 	;
 	;
@@ -26,13 +26,12 @@ public class obj extends p3{
 		for(final obj o:chs)
 			o.upd();
 	}
-	public final void rend(){
+	public final void rend()throws Throwable{
 		if(ph==null&&chs.isEmpty())
 			return;
 		glRotatef(a.z,0,0,1);
-//		glRotatef(a.x,1,0,0);
+		glRotatef(a.x,1,0,0);
 		glRotatef(a.y,0,1,0);
-//		glTranslatef(p.x,p.y,p.z);
 		glTranslatef(x,y,z);
 		if(ph!=null)
 			ph.rend();

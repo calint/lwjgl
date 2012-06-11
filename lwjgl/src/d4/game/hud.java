@@ -3,7 +3,8 @@ import d4.obj;
 public class hud extends obj{
 	public hud(obj parent){
 		super(parent);
-		float s=8;
+//		ph=vbos.get(hudph.class);
+		final float s=8;
 		final int n=(int)(s*8/3);
 		float r=(float)Math.PI*2;
 		float dy=s/n;
