@@ -6,6 +6,7 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 import java.util.Collection;
 import java.util.LinkedList;
 public class obj extends p3{
+	public static long nobjs;
 //	protected final p3 p=new p3();
 	protected obj pt;
 	protected final p3 a=new p3();
@@ -15,6 +16,7 @@ public class obj extends p3{
 	;
 	;
 	public obj(final obj parent){
+		nobjs++;
 		if(parent==null)return;
 		pt=parent;
 		parent.chs.add(this);//? sync
