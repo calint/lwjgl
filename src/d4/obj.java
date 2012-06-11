@@ -29,9 +29,9 @@ public class obj extends p3{
 	public final void rend(){
 		if(ph==null&&chs.isEmpty())
 			return;
-//		glRotatef(a.x,1,0,0);
-//		glRotatef(a.y,0,1,0);
 		glRotatef(a.z,0,0,1);
+//		glRotatef(a.x,1,0,0);
+		glRotatef(a.y,0,1,0);
 //		glTranslatef(p.x,p.y,p.z);
 		glTranslatef(x,y,z);
 		if(ph!=null)
