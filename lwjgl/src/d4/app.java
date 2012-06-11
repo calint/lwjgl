@@ -15,7 +15,7 @@ public class app{
 		final int hi=512;
 		Display.setDisplayMode(new DisplayMode(wi,hi));
 		Display.setTitle("d4");
-		p("display: ").p(Display.getDisplayMode().toString()).nl();
+		p("display ").p(Display.getDisplayMode().toString()).nl();
 		Display.create();
 		p("opengl ").p(Display.getAdapter()).p(" ").pl(Display.getVersion());
 		final wld wd=new wld(null);
