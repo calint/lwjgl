@@ -23,9 +23,9 @@ public class hudph extends polh{
 		ttf=new TrueTypeFont(fnt,antialias);
 	}
 	public void rend()throws Throwable{//? defunc
-		ttf.drawString(0,0,str,Color.white);
+		ttf.drawString(0,0,str,Color.green);
 	}
 	public void drw(TrueTypeFont ttf2){
-		ttf2.drawString(0,0,str,Color.white);
+		ttf2.drawString(0,0,str,Color.gray);
 	}
 }
