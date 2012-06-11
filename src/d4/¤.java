@@ -31,8 +31,8 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import d4.game.hudph;
-import d4.ob.obhous;
+import d4.game.hudph;//? dep
+import d4.ob.obhous;//? dep
 public class ¤{
 	public static void main(final String[] a) throws Throwable{
 		try{
