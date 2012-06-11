@@ -4,8 +4,8 @@ import static org.lwjgl.opengl.GL11.GL_PROJECTION;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glMatrixMode;
 import static org.lwjgl.opengl.GL11.glViewport;
+import static org.lwjgl.util.glu.GLU.*;
 import java.util.Iterator;
-import org.lwjgl.util.glu.GLU;
 public final class win extends obj{
 	final private wld wd;
 	final private p3 lookat=new p3();
@@ -22,9 +22,9 @@ public final class win extends obj{
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glViewport(0,0,wi,hi);
-		GLU.gluPerspective(90,(float)wi/hi,.01f,10000);
-//		GLU.gluLookAt(p.x,p.y,p.z, 0,0,0, 0,1,0);
-		GLU.gluLookAt(x,y,z, lookat.x,lookat.y,lookat.z, 0,1,0);
+		gluPerspective(90,(float)wi/hi,.01f,10000);
+//		gluLookAt(p.x,p.y,p.z, 0,0,0, 0,1,0);
+		gluLookAt(x,y,z, lookat.x,lookat.y,lookat.z, 0,1,0);
 		;
 		final Iterator<obj>i=wd.all();
 		glMatrixMode(GL_MODELVIEW);

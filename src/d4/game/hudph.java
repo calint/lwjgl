@@ -12,9 +12,10 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
 import d4.polh;
 public class hudph extends polh{
+	final int fontsize=8;
 	public static TrueTypeFont ttf;
+	public String str="hello";
 	public void init()throws Throwable{
-		final int fontsize=8;
 		final boolean antialias=true;
 		final InputStream is=getClass().getResourceAsStream("rc/slkscr.ttf");
 		final Font fntbase=Font.createFont(Font.TRUETYPE_FONT,is);
@@ -22,14 +23,9 @@ public class hudph extends polh{
 		ttf=new TrueTypeFont(fnt,antialias);
 	}
 	public void rend()throws Throwable{//? defunc
-		Color.white.bind();
-		//? pushState(enabled,blendfunc)
-		final boolean e=glIsEnabled(GL_BLEND);
-		if(!e)
-			glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-		ttf.drawString(0,0,"hello",Color.white);
-		if(!e)
-			glDisable(GL_BLEND);
+		ttf.drawString(0,0,str,Color.white);
+	}
+	public void drw(TrueTypeFont ttf2){
+		ttf2.drawString(0,0,str,Color.white);
 	}
 }
