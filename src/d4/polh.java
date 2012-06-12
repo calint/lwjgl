@@ -28,6 +28,5 @@ public class polh{
 		glColorPointer(4,GL_FLOAT,0,0);
 		;
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibgl);
-//		glDrawElements(GL_QUADS,12,GL_UNSIGNED_INT,0);
 	}
 }

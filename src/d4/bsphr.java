@@ -7,7 +7,7 @@ public class bsphr extends bvol{
 	}
 	protected boolean isincol(final bvol bv){
 		if(bv instanceof bsphr){
-			final bsphr bs=(bsphr)bv;
+			final bsphr bs=(bsphr)bv;//! assume bv is bsphr here
 			final p3 v=p3.vec(obj,bv.obj);
 			final float dist=v.magn();
 			return (r+bs.r)>dist;

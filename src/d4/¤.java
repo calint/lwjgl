@@ -34,18 +34,15 @@ import org.lwjgl.opengl.DisplayMode;
 import d4.game.hudph;//? dep
 import d4.ob.obhous;//? dep
 public class ¤{
-	public static void main(final String[] a) throws Throwable{
-		try{
-			new ¤();
-		}catch(InvocationTargetException e){
-			throw e.getCause();
-		}
+	public static String boot="d4.game.¤";
+	public static void main(final String[]a)throws Throwable{
+		try{new ¤();}catch(InvocationTargetException e){throw e.getCause();}
 	}
-	public String init="d4.game.¤";
 	public boolean logatsec=true;
 	public boolean logatframe=false;
+	public boolean hud=true;
 	public String datetimefmt="--yyyy-MM-dd--HH-mm-ss-SSS--";
-	public ¤() throws Throwable{
+	public ¤()throws Throwable{
 		int wi=1024;
 		int hi=512;
 		int fps=0;
@@ -70,13 +67,12 @@ public class ¤{
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 		;
 		final wld wd=new wld(null);
-		Class.forName(init).getConstructor(wld.class).newInstance(wd);
+		Class.forName(boot).getConstructor(wld.class).newInstance(wd);
 		final win wn=new win(wd);
 		wn.z=-1;
 		;
 		final hudph hud=new hudph();
 		hud.init();
-		;
 		;
 		long frame=0;
 		long tt=0;
@@ -103,7 +99,8 @@ public class ¤{
 			glMatrixMode(GL_MODELVIEW);
 			glLoadIdentity();
 			;
-			hud.rend();
+			if(this.hud)
+				hud.rend();
 			;
 			final long t_upd0=System.currentTimeMillis();
 			wd.upd();

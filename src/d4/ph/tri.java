@@ -15,14 +15,14 @@ public class tri extends polh{
 	public void init(){
 		vbgl=glGenBuffers();
 		vb=BufferUtils.createFloatBuffer(3*2);
-		vb.put(new float[]{-.1f,-.1f,.1f,-.1f,.1f,.1f});
+		vb.put(new float[]{-.1f,-.1f, .1f,-.1f, .1f,.1f});
 		vb.flip();
 		glBindBuffer(GL_ARRAY_BUFFER,vbgl);
 		glBufferData(GL_ARRAY_BUFFER,vb,GL_STATIC_DRAW);
 		;
 		cbgl=glGenBuffers();
 		cb=BufferUtils.createFloatBuffer(3*4);
-		cb.put(new float[]{0,1,0,1,0,1,0,1,0,1,0,1});
+		cb.put(new float[]{0,1,0, 1,0,1, 0,1,0, 1,0,1});
 		cb.flip();
 		glBindBuffer(GL_ARRAY_BUFFER,cbgl);
 		glBufferData(GL_ARRAY_BUFFER,cb,GL_STATIC_DRAW);
@@ -36,7 +36,9 @@ public class tri extends polh{
 	}
 	public void rend()throws Throwable{
 		super.rend();
-		glPointSize(20);
-		glDrawElements(GL_POINTS,3*2*2,GL_UNSIGNED_INT,0);
+//		final float ps=(float)(10+Math.random()*10);
+		final float ps=20;
+		glPointSize(ps);
+		glDrawElements(GL_POINTS,3,GL_UNSIGNED_INT,0);
 	}
 }
