@@ -111,8 +111,22 @@ public class ¤{
 			final long t1=System.currentTimeMillis();
 			final long dt=t1-t0;
 			final StringBuilder sb=new StringBuilder(256);
-			sb.append("#").append(frame).append("   ").append(dt).append("ms").append("   nobs:").append(obj.nobjs).append("   fps:").append(fps_this_sec).append("  dratime:").append(dt_rend).append("   fisix:").append(dt_up).append("   mous:").append(Mouse.getX()).append(",").append(Mouse.getY()).append("   key:").append(key);
+			sb.append("#").append(frame).append("  fps:").append(fps_this_sec).append("  obj:").append(obj.nobjs);
+			final String[]sa=new String[]{
+//					"#"+frame,
+//					"fps:"+fps_this_sec,
+//					"obj:"+obj.nobjs,
+					"",
+					"framet:"+dt+" ms",
+					"  rend:"+dt_rend,
+					"  fisx:"+dt_up,
+					"",
+					"mous:"+Mouse.getX()+","+Mouse.getY()+","+Mouse.isButtonDown(0),
+					"key:"+key
+			};
+			
 			hud.str=sb.toString();
+			hud.lines=sa;
 			final long dtt=t1-tt;
 			if(dtt>1000){
 				long df=frame-ttfrm;
