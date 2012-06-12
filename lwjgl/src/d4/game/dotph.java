@@ -1,5 +1,4 @@
 package d4.game;
-
 import static org.lwjgl.opengl.GL11.GL_QUADS;
 import static org.lwjgl.opengl.GL11.GL_UNSIGNED_INT;
 import static org.lwjgl.opengl.GL11.glDrawElements;
@@ -11,7 +10,6 @@ import static org.lwjgl.opengl.GL15.glBufferData;
 import static org.lwjgl.opengl.GL15.glGenBuffers;
 import org.lwjgl.BufferUtils;
 import d4.polh;
-
 public class dotph extends polh{
 	public void init(){
 		vbgl=glGenBuffers();
@@ -37,6 +35,6 @@ public class dotph extends polh{
 	}
 	public void rend()throws Throwable{
 		super.rend();
-		glDrawElements(GL_QUADS,12,GL_UNSIGNED_INT,0);
+		glDrawElements(GL_QUADS,4,GL_UNSIGNED_INT,0);
 	}
 }

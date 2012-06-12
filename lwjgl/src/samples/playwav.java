@@ -30,16 +30,33 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package samples;
+import static org.lwjgl.openal.AL10.AL_BUFFER;
+import static org.lwjgl.openal.AL10.AL_LOOPING;
+import static org.lwjgl.openal.AL10.AL_NO_ERROR;
+import static org.lwjgl.openal.AL10.AL_REFERENCE_DISTANCE;
+import static org.lwjgl.openal.AL10.AL_ROLLOFF_FACTOR;
+import static org.lwjgl.openal.AL10.AL_TRUE;
+import static org.lwjgl.openal.AL10.alBufferData;
+import static org.lwjgl.openal.AL10.alDeleteBuffers;
+import static org.lwjgl.openal.AL10.alDeleteSources;
+import static org.lwjgl.openal.AL10.alGenBuffers;
+import static org.lwjgl.openal.AL10.alGenSources;
+import static org.lwjgl.openal.AL10.alGetError;
+import static org.lwjgl.openal.AL10.alSourcePlay;
+import static org.lwjgl.openal.AL10.alSourceStop;
+import static org.lwjgl.openal.AL10.alSourcef;
+import static org.lwjgl.openal.AL10.alSourcei;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.nio.IntBuffer;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.util.WaveData;
-import static org.lwjgl.openal.AL10.*;
 public class playwav{
 	public static boolean checkforerrors=true;
 	public static void main(final String[]a)throws Throwable{new playwav(a);}
-	public playwav(final String[]a){
+	public playwav(final String[]a)throws Throwable{
 		if(a.length<1)throw new Error("nofilespecified");
-		final WaveData wf=WaveData.create(a[0]);
+		final WaveData wf=WaveData.create(new BufferedInputStream(new FileInputStream(a[0])));
 		final IntBuffer bufs=BufferUtils.createIntBuffer(1);
 		alGenBuffers(bufs);aok();
 		alBufferData(bufs.get(0),wf.format,wf.data,wf.samplerate);aok();
